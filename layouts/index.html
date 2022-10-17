@@ -36,6 +36,25 @@
 </div>
 {{ end }}
 
+{{ $groups := where (where .Site.RegularPages "Type" "groups") ".Params.featured" true }}
+{{if gt (len $groups) 0}}
+<div class="container pt-8 pb-8 pb-md-14 pt-md-14">
+  <div class="row justify-content-start">
+    <div class="col-12">
+      <h2 class="text-center mb-3">Gruppenstunden</h2>
+    </div>
+    {{ range first 6 (sort $groups ".Params.weight") }}
+    <div class="col-12 col-md-4 mb-1">
+      {{ .Render "summary" }}
+    </div>
+    {{ end }}
+    <div class="col-12 text-center">
+      <a class="button button-primary" href="{{ .Site.BaseURL }}groups">Alle Gruppen anzeigen</a>
+    </div>
+  </div>
+</div>
+{{end}}
+
 {{ $services := where (where .Site.RegularPages "Type" "services") ".Params.featured" true }}
 {{if gt (len $services) 0}}
 <div class="container pt-8 pb-8 pb-md-14 pt-md-14">
