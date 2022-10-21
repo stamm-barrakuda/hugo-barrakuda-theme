@@ -2,13 +2,13 @@ baseURL = "https://www.example.com/"
 languageCode = "en-us"
 title = "Hugo Hero Theme"
 themesDir = "../.."
-theme = "hugo-hero-theme"
+theme = "hugo-barrakuda-theme"
 
 [module]
   [module.hugoVersion]
     extended = true
     min = "0.92.0"
-    
+
 [params]
   google_analytics_id=""
 
