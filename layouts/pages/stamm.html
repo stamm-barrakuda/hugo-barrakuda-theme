@@ -3,7 +3,7 @@
 {{ define "header_classes" }}{{ end }}
 
 {{ define "main" }}
-{{ partial "hero-image-setheight.html" (dict "background" .Params.heroBackground "heading" .Title "subheading" .Params.subtitle "content" .)}}
+{{ partial "hero-image-setheight.html" (dict "background" .Params.thumbnail "heading" .Title "subheading" .Params.subtitle "content" .)}}
 
 {{ $headless := .Site.GetPage "/pages/stamm" }}
 {{ $subpages := $headless.Resources.ByType "page" }}
