@@ -30,7 +30,9 @@
   </div>
 
   {{ partial "footer.html" . }}
-  <!-- {{ partial "sub-footer.html" . }} -->
+  {{ if .Site.Params.subfooter }}
+    {{ partial "sub-footer.html" . }}
+  {{ end }}
 
   {{ $scripts := resources.Get "js/scripts.js" }}
 
