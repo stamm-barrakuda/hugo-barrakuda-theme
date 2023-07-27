@@ -8,8 +8,7 @@
             <li><strong>Telefon: </strong>{{ .Site.Data.contact.phone }}</li>
             {{ end }}
             {{ if .Site.Data.contact.email }}
-            <li><strong>Email: </strong><a href="mailto:{{ .Site.Data.contact.email }}">
-                {{ .Site.Data.contact.email }}</a></li>
+	    <li><strong>Email: </strong>{{ partial "email.html" (dict "address" .Site.Data.contact.email) }}</li>
               {{ end }}
           </ul>
           <ul>

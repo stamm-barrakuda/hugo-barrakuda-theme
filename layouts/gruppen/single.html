@@ -1,3 +1,4 @@
+{{/* Adapted from https://github.com/martignoni/hugo-cloak-email */}}
 {{ define "header_css" }}{{ end }}
 {{ define "body_classes" }}page-services-single{{ end }}
 {{ define "header_classes" }}{{ end }}
@@ -17,7 +18,7 @@
 	    <br>
 	    Gruppenleitung: {{ .Params.leaders }}
 	    <br>
-	    Kontakt: {{ .Params.contact }}
+	    Kontakt: {{ partial "email.html" (dict "address" .Params.contact) }}
 	</div>
       </div>
     </div>
