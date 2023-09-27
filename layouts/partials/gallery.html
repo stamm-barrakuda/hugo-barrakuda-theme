@@ -1,0 +1,20 @@
+<!--
+Put this file in /layouts/shortcodes/gallery.html
+Documentation and licence at https://github.com/liwenyip/hugo-easy-gallery/
+-->
+<!-- count how many times we've called this shortcode; load the css if it's the first time -->
+{{- if not ($.Page.Scratch.Get "figurecount") }}<link rel="stylesheet" href={{ "css/hugo-easy-gallery.css" | relURL }} />{{ end }}
+{{- $.Page.Scratch.Add "figurecount" 1 -}}
+{{- $images := .images -}}
+<div class="gallery caption-position-bottom caption-effect-slide hover-effect-zoom hover-transition" itemscope itemtype="http://schema.org/ImageGallery">
+	{{- range $images -}}
+	<div class="box">
+		<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+			<div class="img" style="background-image: url('{{.}}');" >
+				<img itemprop="thumbnail" src="{{.}}" /><!-- <img> hidden if in .gallery -->
+			</div>
+			<a href="{{.}}" itemprop="contentUrl"></a><!-- put <a> last so it is stacked on top -->
+		</figure>
+	</div>
+	{{ end }}
+</div>
